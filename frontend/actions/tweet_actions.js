@@ -1,3 +1,5 @@
+import * as APIUtil from '../api_util'
+
 export const RECEIVE_TWEET = "RECEIVE_TWEET";
 export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
 export const FETCH_TWEETS = "FETCH_TWEETS";
