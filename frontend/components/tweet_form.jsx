@@ -22,10 +22,13 @@ class TweetForm extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <input onChange={ this.handleChange } value={ this.state.content }/>
-        <button>Post Tweet</button>
-      </form>
+      <section>
+        <h3>New Tweet</h3>
+        <form onSubmit={ this.handleSubmit }>
+          <input onChange={ this.handleChange } value={ this.state.content }/>
+          <button>Post Tweet</button>
+        </form>
+      </section>
     );
   }
 

@@ -1,12 +1,18 @@
 class Api::TweetsController < ApplicationController
 
   def index
-    render json: Tweet.all
+    sleep 1
+    render json: Tweet.order(created_at: :asc)
   end
 
   def create
+    sleep 1
     tweet = Tweet.new(content: params[:tweet][:content])
-    render json: tweet
+    if tweet.save
+      render json: tweet
+    else
+      render json: tweet.errors, status: 422
+    end
   end
 
 end

@@ -12,6 +12,17 @@ class App extends Component {
     super(props);
   }
 
+  fetchAndLogTweets() {
+    const val = this.props.fetchTweets();
+    console.log('%c Dispatch return value:', 'color: blue', val);
+    val.then && val.then(() => console.log("Fetched tweets."))
+  }
+
+  componentDidMount() {
+    this.props.fetchTweets();
+    // this.fetchAndLogTweets();
+  }
+
   render() {
     const { fetching, tweets } = this.props;
     if (fetching) return <Spinner />;

@@ -1,1 +1,3 @@
-export function allTweets({ tweets }) { return Object.values(tweets); }
+export function allTweets({ tweets }) {
+  return Object.values(tweets).reverse();
+}
