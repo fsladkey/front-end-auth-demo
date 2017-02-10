@@ -18,7 +18,8 @@ export default function Root() {
   // const store = configureStore()
   // let fetched = false
 
-  function fetchCurrentUser(nextState, replace) {
+  function fetchCurrentUser(nextState, replace, next) {
+    next()
     // if (!fetched) {
     //   fetched = true;
     //   store.dispatch(getCurrentUser()).then(() => next());
@@ -26,13 +27,13 @@ export default function Root() {
   }
 
   function redirectIfLoggedIn(nextState, replace) {
-    // if (store.getState().session.currentUser)
-    //   replace('/');
+    if (store.getState().session.currentUser)
+      replace('/');
   }
 
   function redirectUnlessLoggedIn(nextState, replace) {
-    // if (!store.getState().session.currentUser)
-    //   replace('/session/new');
+    if (!store.getState().session.currentUser)
+      replace('/session/new');
   }
 
   return (
