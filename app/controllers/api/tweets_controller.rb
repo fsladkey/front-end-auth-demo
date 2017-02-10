@@ -7,7 +7,7 @@ class Api::TweetsController < ApplicationController
 
   def create
     sleep 1
-    tweet = Tweet.new(content: params[:tweet][:content])
+    tweet = current_user.tweets.new(content: params[:tweet][:content])
     if tweet.save
       render json: tweet
     else
